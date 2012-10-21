@@ -15,6 +15,7 @@
 #'@author Atina Dunlap Brooks
 #'@seealso \code{\link{majority}} \code{\link{factor}}
 #'@keywords utilities
+#'@export
 #'@examples
 #'
 #'#calculate probbilities
@@ -34,9 +35,9 @@
 #'classprob(x)
 #'
 `classprob` <- function(x){
-  x <- as.factor(x)
-  n <- nlevels(x)
-  votes <- rep(0, n)
-  for (i in 1:length(x)) votes[as.integer(x[i])] <- votes[as.integer(x[i])]+1
-  votes/length(x)
-  }
+    x <- as.factor(x)
+    n <- nlevels(x)
+    votes <- rep(0, n)
+    for (i in 1:length(x)) votes[as.integer(x[i])] <- votes[as.integer(x[i])]+1
+    votes/length(x)
+}

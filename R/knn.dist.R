@@ -45,6 +45,7 @@
 #'@seealso \code{\link{knn.predict}}, \code{\link{dist}},
 #'\code{\link[class]{knn}}
 #'@keywords methods
+#'@export
 #'@examples
 #'
 #'#a quick classification example
@@ -97,11 +98,10 @@
 #'# display misclassification rates for k=1:10
 #'apply(cvpred,2,function(x) sum(cl!=x))
 #'
-`knn.dist` <-
-function(x, dist.meth="euclidean", p=2) {
-#create a distance matrix using all values in the data
-d<-as.matrix(dist(x,dist.meth,p))
-#fix for some small high persision errors
-round(d,digits=15)
+`knn.dist` <- function(x, dist.meth="euclidean", p=2) {
+    #create a distance matrix using all values in the data
+    d<-as.matrix(dist(x,dist.meth,p))
+    #fix for some small high persision errors
+    round(d,digits=15)
 }
 

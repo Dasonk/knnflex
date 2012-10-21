@@ -12,16 +12,17 @@
 #'@author Atina Dunlap Brooks
 #'@seealso \code{\link{factor}}
 #'@keywords utilities
+#'@export
 #'@examples
 #'
 #'x <- sample( c("a","b","c","d","e"), 10, replace=TRUE )
 #'majority(x)
 #'
 `majority` <- function(x){
-  x <- as.factor(x)
-  n <- nlevels(x)
-  votes <- rep(0,n)
-  for (i in 1:length(x)) votes[as.integer(x[i])] <- votes[as.integer(x[i])]+1
-  levels(x)[order(votes,decreasing=TRUE,sample(1:n,n))[1]]
-  }
+    x <- as.factor(x)
+    n <- nlevels(x)
+    votes <- rep(0,n)
+    for (i in 1:length(x)) votes[as.integer(x[i])] <- votes[as.integer(x[i])]+1
+    levels(x)[order(votes,decreasing=TRUE,sample(1:n,n))[1]]
+}
 
